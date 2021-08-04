@@ -13,7 +13,9 @@ for letter in chosen_word:
 print(display)
 # chosen_word_chars = list(set(chosen_word))
 
-while '_' in display:
+lives = 6
+
+while '_' in display and lives > 0:
     guess = input('Enter a Letter: ')
     guess.lower()
     for i in range(len(chosen_word)):
@@ -22,7 +24,11 @@ while '_' in display:
             if letter == guess:
                 display[i] = letter
         else:
-            print("Try again!")
+            lives -= 1
+            break
     print(display)
-print('You win!')
+if lives == 0:
+    print('You Lose!')
+else:
+    print('You Win!')
 
