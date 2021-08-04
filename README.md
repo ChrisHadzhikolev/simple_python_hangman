@@ -1,1 +1,1 @@
-# simple_python_hangman
+# Simple Python Hangman
