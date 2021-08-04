@@ -2,6 +2,63 @@ import random as rand
 
 word_list = ["aardvark", "baboon", "camel", "wolf", "ginger", "zombie"]
 
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 chosen_word = rand.choice(word_list)
 print(chosen_word)
 
@@ -25,8 +82,9 @@ while '_' in display and lives > 0:
                 display[i] = letter
         else:
             lives -= 1
+            print(stages[lives])
             break
-    print(display)
+    print(f"{' '.join(display)}")
 if lives == 0:
     print('You Lose!')
 else:
