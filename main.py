@@ -1,76 +1,16 @@
 import random as rand
+import word_list
+import ascii_art
 
-word_list = ["aardvark", "baboon", "camel", "wolf", "ginger", "zombie"]
+print(ascii_art.logo)
+chosen_word = rand.choice(word_list.word_list)
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-chosen_word = rand.choice(word_list)
-print(chosen_word)
-
-
+lives = 6
 display = []
 for letter in chosen_word:
     display.append('_')
 
-print(display)
-# chosen_word_chars = list(set(chosen_word))
-
-lives = 6
+print(f"{' '.join(display)}")
 
 while '_' in display and lives > 0:
     guess = input('Enter a Letter: ')
@@ -82,11 +22,10 @@ while '_' in display and lives > 0:
                 display[i] = letter
         else:
             lives -= 1
-            print(stages[lives])
+            print(ascii_art.stages[lives])
             break
     print(f"{' '.join(display)}")
 if lives == 0:
     print('You Lose!')
 else:
     print('You Win!')
-
